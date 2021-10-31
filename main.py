@@ -17,16 +17,11 @@ parameters = {
 	        "indicator": "rsi"
 	    },
             {
-                # Chaikin Money Flow
-	        "indicator": "cmf",
-	        "period": 20 # Override the default 14
+                
+	        "indicator": "avgprice"
+	        
 	    },
-	    {
-                # MACD Backtracked 1
-                "id": "My custom id",
-	        "indicator": "macd",
-	        "backtrack": 1
-	    }
+	  
         ]
     }
 }
