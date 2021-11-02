@@ -1,5 +1,19 @@
 import schedule
 import time
+import robin_stocks
+import robin_stocks.robinhood as r
+
+
+# This if for logging into Robinhood via the robinstocks api
+#currently im going to keep this commented out untill I do more testing
+
+#def login():
+  #  r.login(###,###)
+
+#login()
+#print("You are now logged into robinhood... scanning for trading opportunity")
+
+
 
 
 def theJob():
