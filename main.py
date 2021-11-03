@@ -2,18 +2,18 @@ import schedule
 import time
 import robin_stocks
 import robin_stocks.robinhood as r
+from buyText import *
+from sellText import *
 
 
 # This if for logging into Robinhood via the robinstocks api
-#currently im going to keep this commented out untill I do more testing
+# currently im going to keep this commented out untill I do more testing
 
-#def login():
-  #  r.login(###,###)
+# def login():
+#  r.login(###, ###)
 
-#login()
+# login()
 #print("You are now logged into robinhood... scanning for trading opportunity")
-
-
 
 
 def theJob():
@@ -26,7 +26,7 @@ def theJob():
 
 # Define a JSON body with parameters to be sent to the API
     parameters = {
-        "secret": "",
+        "secret": "###",
         "construct": {
             "exchange": "binance",
             "symbol": "ETH/USDT",
@@ -51,6 +51,7 @@ def theJob():
                     "indicator": "macd"
 
                 },
+
 
             ]
         }
@@ -87,14 +88,17 @@ def theJob():
     print(rsi)
     print(dmi)
     print(boughtAt)
+    print("-------------------------------------------------")
 
-    if macd < -4 and rsi < 30 and dmi > 85:
+    if macd < -6 and rsi < 30 and dmi > 39:
         print("time to buy!!!!!")
         boughtAt = price
+        buyText()
 
-    if macd > 6 and rsi > 70 and dmi > 85 and price > boughtAt:
+    if macd > 6 and rsi > 70 and dmi > 23 and price > boughtAt:
         print("time to sell!!!!!")
         boughtAt = 0
+        sellText()
 
 
 # running theJob every 15 seconds
