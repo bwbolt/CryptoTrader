@@ -107,3 +107,9 @@ schedule.every(.25).minutes.do(theJob)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+
+
+
+
+#next I want to add functionality of a computer learning algo
