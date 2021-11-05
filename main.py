@@ -113,3 +113,4 @@ while True:
 
 
 #next I want to add functionality of a computer learning algo
+#I didnt add a single thing today
