@@ -7,13 +7,21 @@ from sellText import *
 
 
 # This if for logging into Robinhood via the robinstocks api
-# currently im going to keep this commented out untill I do more testing
+
 
 # def login():
-#  r.login(###, ###)
+# r.login('###', '###')
+
 
 # login()
 #print("You are now logged into robinhood... scanning for trading opportunity")
+
+
+# def buy():
+# robin_stocks.robinhood.orders.order_buy_crypto_by_quantity("ETH",.002)
+
+# def sell():
+# robin_stocks.robinhood.orders.order_sell_crypto_by_quantity("ETH",.002)
 
 
 def theJob():
@@ -81,6 +89,7 @@ def theJob():
 # variable for price at buy
     boughtAt = 0
 
+
 # Print result
 
     print(price)
@@ -90,18 +99,21 @@ def theJob():
     print(boughtAt)
     print("-------------------------------------------------")
 
-    if macd < -6 and rsi < 30 and dmi > 39:
+    if macd < -6 and rsi < 30 and dmi > 39 and price == 0:
         print("time to buy!!!!!")
         boughtAt = price
         buyText()
+        # buy()
 
-    if macd > 6 and rsi > 70 and dmi > 23 and price > boughtAt:
+    if macd > 6 and rsi > 70 and dmi > 23 and price > boughtAt and boughtAt > 0:
         print("time to sell!!!!!")
         boughtAt = 0
         sellText()
+        # sell()
 
 
 # running theJob every 15 seconds
+
 schedule.every(.25).minutes.do(theJob)
 
 while True:
@@ -110,8 +122,6 @@ while True:
 
 
 
-#will be adding automation down here
 
-
-
-
+#something stopped the funciton running last night so im trying to figure out what it was
+#it seems like it wasnt on my end, but on taapios side
