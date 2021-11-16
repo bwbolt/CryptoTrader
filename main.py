@@ -9,22 +9,27 @@ from sellText import *
 # This if for logging into Robinhood via the robinstocks api
 
 
-# def login():
-# r.login('###', '###')
+#def login():
+   # r.login('###', '###')
 
 
-# login()
+#login()
 #print("You are now logged into robinhood... scanning for trading opportunity")
 
 
-# def buy():
-# robin_stocks.robinhood.orders.order_buy_crypto_by_quantity("ETH",.002)
+#def buy():
+    #robin_stocks.robinhood.orders.order_buy_crypto_by_quantity("ETH",.002)
 
-# def sell():
-# robin_stocks.robinhood.orders.order_sell_crypto_by_quantity("ETH",.002)
+#def sell():
+    #robin_stocks.robinhood.orders.order_sell_crypto_by_quantity("ETH",.002)
 
+
+boughtAt = 0
+log=[]
 
 def theJob():
+    global boughtAt
+    global log
 
     # Import the requests library
     import requests
@@ -87,7 +92,7 @@ def theJob():
 
 
 # variable for price at buy
-    boughtAt = 0
+   
 
 
 # Print result
@@ -98,18 +103,22 @@ def theJob():
     print(dmi)
     print(boughtAt)
     print("-------------------------------------------------")
+    print(log)
+    print("=================================================")
 
-    if macd < -6 and rsi < 30 and dmi > 39 and price == 0:
+    if macd < -6 and rsi < 30 and dmi > 23 and boughtAt == 0:
         print("time to buy!!!!!")
         boughtAt = price
+        log.append(price)
         buyText()
-        # buy()
+        #buy()
 
     if macd > 6 and rsi > 70 and dmi > 23 and price > boughtAt and boughtAt > 0:
         print("time to sell!!!!!")
         boughtAt = 0
+        log.append(price)
         sellText()
-        # sell()
+        #sell()
 
 
 # running theJob every 15 seconds
@@ -119,9 +128,3 @@ schedule.every(.25).minutes.do(theJob)
 while True:
     schedule.run_pending()
     time.sleep(1)
-
-
-
-
-#something stopped the funciton running last night so im trying to figure out what it was
-#it seems like it wasnt on my end, but on taapios side
