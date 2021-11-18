@@ -43,7 +43,7 @@ def theJob():
         "construct": {
             "exchange": "binance",
             "symbol": "ETH/USDT",
-            "interval": "1m",
+            "interval": "5m",
             "indicators": [
                 {
 
@@ -106,14 +106,14 @@ def theJob():
     print(log)
     print("=================================================")
 
-    if macd < -6 and rsi < 30 and dmi > 23 and boughtAt == 0:
+    if macd < -20 and rsi < 30 and dmi > 23 and boughtAt == 0:
         print("time to buy!!!!!")
         boughtAt = price
         log.append(price)
         buyText()
         #buy()
 
-    if macd > 6 and rsi > 70 and dmi > 23 and price > boughtAt and boughtAt > 0:
+    if macd > 20 and rsi > 70 and dmi > 23 and price > boughtAt and boughtAt > 0:
         print("time to sell!!!!!")
         boughtAt = 0
         log.append(price)
