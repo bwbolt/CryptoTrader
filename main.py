@@ -128,3 +128,10 @@ schedule.every(.25).minutes.do(theJob)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+
+
+
+
+
+#Starting to learn that the larger time span has its benifits and its downsides as well
