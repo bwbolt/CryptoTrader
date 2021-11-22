@@ -43,7 +43,7 @@ def theJob():
         "construct": {
             "exchange": "binance",
             "symbol": "ETH/USDT",
-            "interval": "5m",
+            "interval": "1m",
             "indicators": [
                 {
 
